@@ -1,0 +1,248 @@
+<html>
+<!-- Head tag -->
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	
+		<link href="/favicon.ico" rel="icon">
+	 
+      <title>分享多张图片到微信朋友圈 | story-android</title>
+	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/highlight.css">
+	
+	
+
+</head>
+<body>
+	<div id="site" class="site">
+		<div id="sidebar" class="sidebar">
+			<header id="header" class="site-header">
+	<div class="site-branding">
+		<h1 class="site-title"><a href="/" rel="home">SingleMan丶司</a></h1>
+		<p class="site-description">I&#39;m very ugly but I very gentleness</p>
+		<button class="secondary-toggle font-asesome-icon">Menu and widgets</button>
+	</div>
+</header>
+<div id="secondary" class="secondary">
+	<nav class="main-navigation">
+                         <ul id="menu-demo-menu" class="nav-menu">
+						 
+							<li class="menu-item"><a href="/">首页</a></li>
+						
+							<li class="menu-item"><a href="/archives">归档</a></li>
+						
+							<li class="menu-item"><a href="/about">关于</a></li>
+						
+                         </ul>
+    </nav>
+	
+		
+<aside class="widget">
+		<h3 class="widget-title">归档</h3>		
+		<ul>
+			<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">六月 2017</a><span class="archive-list-count">2</span></li></ul>
+		</ul>
+	</aside>
+
+
+	
+		
+<aside class="widget">
+		<h3 class="widget-title">最新文章</h3>		
+		<ul>
+			
+          <li>
+            <a href="/2017/06/22/分享图片文字到朋友圈（适配7.0）/">分享多张图片到微信朋友圈</a>
+          </li>
+        
+          <li>
+            <a href="/2017/06/21/hello-world/">Hello Hexo!</a>
+          </li>
+        
+		</ul>
+	</aside>
+
+
+	
+		
+	
+</div>
+		</div>
+		<div id="content" class="site-content">
+			<main id="main" class="site-main" role="main">
+				
+<article class="hentry ">
+		
+		
+			<header class="entry-header">
+				<h2 class="entry-title"><a href="/2017/06/22/分享图片文字到朋友圈（适配7.0）/" rel="bookmark">分享多张图片到微信朋友圈</a></h2>	
+			</header>
+		
+		<!-- .entry-header -->
+		<div class="entry-content">
+			
+				<h2 id="分享多张图片到微信朋友圈"><a href="#分享多张图片到微信朋友圈" class="headerlink" title="分享多张图片到微信朋友圈"></a>分享多张图片到微信朋友圈</h2><h3 id="分享核心代码"><a href="#分享核心代码" class="headerlink" title="分享核心代码"></a>分享核心代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">   *content: 朋友圈的文字内容</div><div class="line">   *uris:    图片的集合</div><div class="line">   */</div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shareToWX</span><span class="params">(Activity activity,String content, ArrayList&lt;Uri&gt; uris)</span></span>&#123;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">          Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">          ComponentName comp = <span class="keyword">new</span> ComponentName(<span class="string">"com.tencent.mm"</span>, <span class="string">"com.tencent.mm.ui.tools.ShareToTimeLineUI"</span>);</div><div class="line">          intent.setComponent(comp);</div><div class="line">          intent.setAction(Intent.ACTION_SEND_MULTIPLE);</div><div class="line">          intent.setType(<span class="string">"image/*"</span>);</div><div class="line">          intent.putExtra(<span class="string">"Kdescription"</span>, content);</div><div class="line">          intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);</div><div class="line">          activity.startActivityForResult(intent, <span class="number">10</span>);</div><div class="line">       &#125; <span class="keyword">catch</span> (ActivityNotFoundException e) &#123;</div><div class="line">           activity.runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">               <span class="meta">@Override</span></div><div class="line">               <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                   Toast.makeText(activity, <span class="string">"您还未安装微信"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">               &#125;</div><div class="line">           &#125;);</div><div class="line">      &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="7-0获取Uri代码"><a href="#7-0获取Uri代码" class="headerlink" title="7.0获取Uri代码"></a>7.0获取Uri代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) &#123;</div><div class="line">               <span class="keyword">return</span> FileProvider.getUriForFile(context, <span class="string">"&#123;你的包名&#125;.fileprovider"</span>, file);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">	 <span class="keyword">return</span> Uri.fromFile(file);</div><div class="line">       &#125;</div><div class="line"></div><div class="line"></div><div class="line">备注：file : File 类型的对象 [也可在<span class="number">7.0</span>以后的版本中获取Uri]</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">               <span class="keyword">return</span> Uri.parse(android.provider.MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getAbsolutePath(), file.getName(), <span class="keyword">null</span>));</div><div class="line">           &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">               e.printStackTrace();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">     <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line">...</div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">provider</span></span></div><div class="line">          <span class="attr">android:name</span>=<span class="string">"android.support.v4.content.FileProvider"</span></div><div class="line">          <span class="attr">android:authorities</span>=<span class="string">"&#123;applicationId&#125;.fileprovider"</span></div><div class="line">          <span class="attr">android:exported</span>=<span class="string">"false"</span></div><div class="line">          <span class="attr">android:grantUriPermissions</span>=<span class="string">"true"</span>&gt;</div><div class="line">          <span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">              <span class="attr">android:name</span>=<span class="string">"android.support.FILE_PROVIDER_PATHS"</span></div><div class="line">              <span class="attr">android:resource</span>=<span class="string">"@xml/file_provider_paths"</span> /&gt;</div><div class="line">       <span class="tag">&lt;/<span class="name">provider</span>&gt;</span></div><div class="line"></div><div class="line">     <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="file-provider-paths-xml-res目录下创建xml文件夹"><a href="#file-provider-paths-xml-res目录下创建xml文件夹" class="headerlink" title="file_provider_paths.xml (res目录下创建xml文件夹)"></a>file_provider_paths.xml (res目录下创建xml文件夹)</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">files-path</span>&gt;</span> 共享app内部的存储(等价于 Context.getFilesDir() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">files-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">cache-path</span>&gt;</span> 共享内部缓存目录(等价于 getCacheDir() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">cache-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">external-path</span>&gt;</span> 共享外部的存储(等价于 Environment.getExternalStorageDirectory() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">external-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">external-files-path</span>&gt;</span> 共享外部存储中与你的应用关联的目录(等于 Context.getExternalFilesDir(String) 或 Context.getExternalFilesDir(null) 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">external-files-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">external-cache-path</span>&gt;</span> 共享外部存储中与你的应用关联的缓存目录(等价于 Context.getExternalCacheDir() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">external-cache-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line">##关于属性</div><div class="line"></div><div class="line">name="name" </div><div class="line">引号里的内容可以随便填，建议填有意义的内容。</div><div class="line"></div><div class="line">path="path" </div><div class="line">path属性的值表示共享的具体路径。注意：path属性里指定的是路径，而不是某个特定文件。这里不能指定为一个文件，也不能用通配符指定为一组文件</div></pre></td></tr></table></figure>
+<h3 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//临时授权</div><div class="line">intent.setFlags(FLAG_GRANT_READ_URI_PERMISSION 或 FLAG_GRANT_WRITE_URI_PERMISSION);</div></pre></td></tr></table></figure>
+			
+		</div><!-- .entry-content -->
+		
+			<div class="entry-comments">
+				 
+  
+   
+      <!-- ��˵���ۿ� start -->
+	<div class="ds-thread" data-thread-key="2017/06/22/分享图片文字到朋友圈（适配7.0）/" data-title="分享多张图片到微信朋友圈" data-url="http://siyujie.github.io/2017/06/22/分享图片文字到朋友圈（适配7.0）/"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"troyyang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- ��˵����JS���� end -->
+ 
+			</div>
+		
+		<footer class="entry-footer">
+			<span class="posted-on font-asesome-icon">
+	<a href="" rel="bookmark">
+	<time class="updated" datetime="2017-06-22T01:42:12.513Z">2017-06-22</time>
+	</a>
+</span>
+
+		
+
+    <span class="eye font-asesome-icon" >
+         <span id="/2017/06/22/分享图片文字到朋友圈（适配7.0）/" class="leancloud_visitors" data-flag-title="分享多张图片到微信朋友圈">
+        
+        </span>
+    </span>
+
+		</footer><!-- .entry-footer -->
+</article>
+<div class="misc">
+    <a href="#main"><span class="top font-asesome-icon">Top</span></a>
+</div>
+			</main>
+		</div>
+		<footer id="colophon" class="site-footer">
+			<div class="site-info">
+				<span>powered by <a href="https://hexo.io/">Hexo</a>&nbsp;&nbsp; theme by <a href="https://github.com/Troy-Yang/hexo-theme-twentyfifteen-wordpress">Troy</a> &nbsp; inspired by <a href="https://wordpress.org/themes/">wordpress</a></span>
+			</div><!-- .site-info -->
+		</footer>
+	</div>
+	<div id="infinite-footer">
+            <div class="container">
+                <div class="blog-info">
+                    <a id="infinity-blog-title" href="#" rel="home" title="Scroll back to top">
+                         Happy Coding, Happy Life!
+                    </a>
+                </div>
+                <div class="blog-credits">
+					<span>蜀ICP备15004900号-1</span>
+                </div>
+            </div>
+        </div><!-- #infinite-footer -->
+    <!-- After footer scripts -->
+    <script src="/js/jquery-3.1.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <!--referring from https://notes.wanghao.work/2015-10-21-%E4%B8%BANexT%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize("null", "null");
+    </script>
+    <script>
+        function showTime(Counter) {
+            var query = new AV.Query(Counter);
+            $(".leancloud_visitors").each(function () {
+                var url = $(this).attr("id").trim();
+                query.equalTo("url", url);
+                query.find({
+                    success: function (results) {
+                        if (results.length == 0) {
+                            var content = $(document.getElementById(url)).text() + ': 0';
+                            $(document.getElementById(url)).text(content);
+                            return;
+                        }
+                        for (var i = 0; i < results.length; i++) {
+                            var object = results[i];
+                            var content = $(document.getElementById(url)).text() + ': ' + object.get('time');
+                            $(document.getElementById(url)).text(content);
+                        }
+                    },
+                    error: function (object, error) {
+                        console.log("Error: " + error.code + " " + error.message);
+                    }
+                });
+            });
+        }
+        function addCount(Counter) {
+            var Counter = AV.Object.extend("Counter");
+            url = $(".leancloud_visitors").attr('id').trim();
+            title = $(".leancloud_visitors").attr('data-flag-title').trim();
+            var query = new AV.Query(Counter);
+            query.equalTo("url", url);
+            query.find({
+                success: function (results) {
+                    if (results.length > 0) {
+                        var counter = results[0];
+                        counter.fetchWhenSave(true);
+                        counter.increment("time");
+                        counter.save(null, {
+                            success: function (counter) {
+                                var content = $(document.getElementById(url)).text() + ': ' + counter.get('time');
+                                // remove ': '
+                                $(document.getElementById(url)).text(counter.get('time'));
+                            },
+                            error: function (counter, error) {
+                                console.log('Failed to save Visitor num, with error message: ' + error.message);
+                            }
+                        });
+                    } else {
+                        var newcounter = new Counter();
+                        newcounter.set("title", title);
+                        newcounter.set("url", url);
+                        newcounter.set("time", 1);
+                        newcounter.save(null, {
+                            success: function (newcounter) {
+                                console.log("newcounter.get('time')=" + newcounter.get('time'));
+                                var content = $(document.getElementById(url)).text() + ': ' + newcounter.get('time');
+                                // remove ': '
+                                $(document.getElementById(url)).text(newcounter.get('time'));
+                            },
+                            error: function (newcounter, error) {
+                                console.log('Failed to create');
+                            }
+                        });
+                    }
+                },
+                error: function (error) {
+                    console.log('Error:' + error.code + " " + error.message);
+                }
+            });
+        }
+        $(function () {
+            var Counter = AV.Object.extend("Counter");
+            if ($('.leancloud_visitors').length == 1) {
+                addCount(Counter);
+            } else if ($('.post-title-link').length > 1) {
+                showTime(Counter);
+            }
+        });
+    </script>
+    
+</body>
+</html>
