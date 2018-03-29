@@ -8,7 +8,7 @@
 	
 		<link href="/favicon.ico" rel="icon">
 	 
-      <title>story-android</title>
+      <title>图片添加水印 | story-android</title>
 	<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/highlight.css">
@@ -78,8 +78,6 @@
 		<div id="content" class="site-content">
 			<main id="main" class="site-main" role="main">
 				
-  
-    
 <article class="hentry ">
 		
 		
@@ -94,6 +92,29 @@
 <h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3>
 			
 		</div><!-- .entry-content -->
+		
+			<div class="entry-comments">
+				 
+  
+   
+      <!-- ��˵���ۿ� start -->
+	<div class="ds-thread" data-thread-key="2018/03/29/图片添加水印/" data-title="图片添加水印" data-url="http://siyujie.github.io/2018/03/29/图片添加水印/"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"troyyang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.unstable.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- ��˵����JS���� end -->
+ 
+			</div>
 		
 		<footer class="entry-footer">
 			<span class="posted-on font-asesome-icon">
@@ -115,97 +136,6 @@
 <div class="misc">
     <a href="#main"><span class="top font-asesome-icon">Top</span></a>
 </div>
-  
-    
-<article class="hentry ">
-		
-		
-			<header class="entry-header">
-				<h2 class="entry-title"><a href="/2018/03/19/笔记/" rel="bookmark">分享多张图片到微信朋友圈</a></h2>	
-			</header>
-		
-		<!-- .entry-header -->
-		<div class="entry-content">
-			
-				<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h4 id="常见异常（星号）Unordered-Lists"><a href="#常见异常（星号）Unordered-Lists" class="headerlink" title="常见异常（星号）Unordered Lists (*)"></a>常见异常（星号）Unordered Lists (*)</h4><ul>
-<li>异步任务或其他后台线程操作，界面显示滚动条。 两个Tab页快速点击切换，有一定几率出现上述问题引起的崩溃。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalArgumentException: View not attached to window manager</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>解决方法：<br>1、在页面的destory方法中，判断dialog是否存在，若存在，dismiss就销毁，使dialog的生命周期与activity同步；<br>2、在一些由于耗时操作或其他操作导致容易出现activity被销毁而dialog未销毁的地方，使用activity.isfinidhing方法判断activity是否被销毁，销毁，则终止代码；</p>
-</blockquote>
-<h3 id="技术点（星号）Unordered-Lists"><a href="#技术点（星号）Unordered-Lists" class="headerlink" title="技术点（星号）Unordered Lists (*)"></a>技术点（星号）Unordered Lists (*)</h3><ul>
-<li>子view不局限于parent内【是否限制子View在其范围内】，在跟布局天添加：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:clipChildren="false"</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3>
-			
-		</div><!-- .entry-content -->
-		
-		<footer class="entry-footer">
-			<span class="posted-on font-asesome-icon">
-	<a href="" rel="bookmark">
-	<time class="updated" datetime="2018-03-19T02:35:54.766Z">2018-03-19</time>
-	</a>
-</span>
-
-		
-
-    <span class="eye font-asesome-icon" >
-         <span id="/2018/03/19/笔记/" class="leancloud_visitors" data-flag-title="分享多张图片到微信朋友圈">
-        
-        </span>
-    </span>
-
-		</footer><!-- .entry-footer -->
-</article>
-<div class="misc">
-    <a href="#main"><span class="top font-asesome-icon">Top</span></a>
-</div>
-  
-    
-<article class="hentry ">
-		
-		
-			<header class="entry-header">
-				<h2 class="entry-title"><a href="/2017/06/22/分享图片文字到朋友圈（适配7.0）/" rel="bookmark">分享多张图片到微信朋友圈</a></h2>	
-			</header>
-		
-		<!-- .entry-header -->
-		<div class="entry-content">
-			
-				<h2 id="分享多张图片到微信朋友圈"><a href="#分享多张图片到微信朋友圈" class="headerlink" title="分享多张图片到微信朋友圈"></a>分享多张图片到微信朋友圈</h2><h3 id="分享核心代码"><a href="#分享核心代码" class="headerlink" title="分享核心代码"></a>分享核心代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   <span class="comment">/**</span></div><div class="line">   *content: 朋友圈的文字内容</div><div class="line">   *uris:    图片的集合</div><div class="line">   */</div><div class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shareToWX</span><span class="params">(Activity activity,String content, ArrayList&lt;Uri&gt; uris)</span></span>&#123;</div><div class="line"><span class="keyword">try</span> &#123;</div><div class="line">          Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">          ComponentName comp = <span class="keyword">new</span> ComponentName(<span class="string">"com.tencent.mm"</span>, <span class="string">"com.tencent.mm.ui.tools.ShareToTimeLineUI"</span>);</div><div class="line">          intent.setComponent(comp);</div><div class="line">          intent.setAction(Intent.ACTION_SEND_MULTIPLE);</div><div class="line">          intent.setType(<span class="string">"image/*"</span>);</div><div class="line">          intent.putExtra(<span class="string">"Kdescription"</span>, content);</div><div class="line">          intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);</div><div class="line">          activity.startActivityForResult(intent, <span class="number">10</span>);</div><div class="line">       &#125; <span class="keyword">catch</span> (ActivityNotFoundException e) &#123;</div><div class="line">           activity.runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">               <span class="meta">@Override</span></div><div class="line">               <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                   Toast.makeText(activity, <span class="string">"您还未安装微信"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">               &#125;</div><div class="line">           &#125;);</div><div class="line">      &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
-<h3 id="7-0获取Uri代码"><a href="#7-0获取Uri代码" class="headerlink" title="7.0获取Uri代码"></a>7.0获取Uri代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) &#123;</div><div class="line">               <span class="keyword">return</span> FileProvider.getUriForFile(context, <span class="string">"&#123;你的包名&#125;.fileprovider"</span>, file);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">	 <span class="keyword">return</span> Uri.fromFile(file);</div><div class="line">       &#125;</div><div class="line"></div><div class="line"></div><div class="line">备注：file : File 类型的对象 [也可在<span class="number">7.0</span>以后的版本中获取Uri]</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">               <span class="keyword">return</span> Uri.parse(android.provider.MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getAbsolutePath(), file.getName(), <span class="keyword">null</span>));</div><div class="line">           &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">               e.printStackTrace();</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">     <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div><div class="line">...</div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">provider</span></span></div><div class="line">          <span class="attr">android:name</span>=<span class="string">"android.support.v4.content.FileProvider"</span></div><div class="line">          <span class="attr">android:authorities</span>=<span class="string">"&#123;applicationId&#125;.fileprovider"</span></div><div class="line">          <span class="attr">android:exported</span>=<span class="string">"false"</span></div><div class="line">          <span class="attr">android:grantUriPermissions</span>=<span class="string">"true"</span>&gt;</div><div class="line">          <span class="tag">&lt;<span class="name">meta-data</span></span></div><div class="line">              <span class="attr">android:name</span>=<span class="string">"android.support.FILE_PROVIDER_PATHS"</span></div><div class="line">              <span class="attr">android:resource</span>=<span class="string">"@xml/file_provider_paths"</span> /&gt;</div><div class="line">       <span class="tag">&lt;/<span class="name">provider</span>&gt;</span></div><div class="line"></div><div class="line">     <span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="file-provider-paths-xml-res目录下创建xml文件夹"><a href="#file-provider-paths-xml-res目录下创建xml文件夹" class="headerlink" title="file_provider_paths.xml (res目录下创建xml文件夹)"></a>file_provider_paths.xml (res目录下创建xml文件夹)</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">files-path</span>&gt;</span> 共享app内部的存储(等价于 Context.getFilesDir() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">files-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">cache-path</span>&gt;</span> 共享内部缓存目录(等价于 getCacheDir() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">cache-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">external-path</span>&gt;</span> 共享外部的存储(等价于 Environment.getExternalStorageDirectory() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">external-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">external-files-path</span>&gt;</span> 共享外部存储中与你的应用关联的目录(等于 Context.getExternalFilesDir(String) 或 Context.getExternalFilesDir(null) 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">external-files-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">external-cache-path</span>&gt;</span> 共享外部存储中与你的应用关联的缓存目录(等价于 Context.getExternalCacheDir() 返回的内容)</div><div class="line"><span class="tag">&lt;<span class="name">external-cache-path</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">path</span>=<span class="string">"path"</span> /&gt;</span></div><div class="line"></div><div class="line">##关于属性</div><div class="line"></div><div class="line">name="name" </div><div class="line">引号里的内容可以随便填，建议填有意义的内容。</div><div class="line"></div><div class="line">path="path" </div><div class="line">path属性的值表示共享的具体路径。注意：path属性里指定的是路径，而不是某个特定文件。这里不能指定为一个文件，也不能用通配符指定为一组文件</div></pre></td></tr></table></figure>
-<h3 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//临时授权</div><div class="line">intent.setFlags(FLAG_GRANT_READ_URI_PERMISSION 或 FLAG_GRANT_WRITE_URI_PERMISSION);</div></pre></td></tr></table></figure>
-			
-		</div><!-- .entry-content -->
-		
-		<footer class="entry-footer">
-			<span class="posted-on font-asesome-icon">
-	<a href="" rel="bookmark">
-	<time class="updated" datetime="2017-06-22T01:42:12.513Z">2017-06-22</time>
-	</a>
-</span>
-
-		
-
-    <span class="eye font-asesome-icon" >
-         <span id="/2017/06/22/分享图片文字到朋友圈（适配7.0）/" class="leancloud_visitors" data-flag-title="分享多张图片到微信朋友圈">
-        
-        </span>
-    </span>
-
-		</footer><!-- .entry-footer -->
-</article>
-<div class="misc">
-    <a href="#main"><span class="top font-asesome-icon">Top</span></a>
-</div>
-  
-
-
-
 			</main>
 		</div>
 		<footer id="colophon" class="site-footer">
