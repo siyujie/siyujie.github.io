@@ -305,17 +305,15 @@ public static final Parcelable.Creator&lt;Student&gt; CREATOR=new Creator&lt;Stu
 		<!-- .entry-header -->
 		<div class="entry-content">
 			
-				<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h4 id="常见异常（星号）Unordered-Lists"><a href="#常见异常（星号）Unordered-Lists" class="headerlink" title="常见异常（星号）Unordered Lists (*)"></a>常见异常（星号）Unordered Lists (*)</h4><ul>
-<li>异步任务或其他后台线程操作，界面显示滚动条。 两个Tab页快速点击切换，有一定几率出现上述问题引起的崩溃。<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalArgumentException: View not attached to window manager</div></pre></td></tr></table></figure>
-</li>
-</ul>
+				<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><h4 id="常见异常（星号）Unordered-Lists"><a href="#常见异常（星号）Unordered-Lists" class="headerlink" title="常见异常（星号）Unordered Lists (*)"></a>常见异常（星号）Unordered Lists (*)</h4><p><strong>异步任务或其他后台线程操作，界面显示滚动条。 两个Tab页快速点击切换，有一定几率出现上述问题引起的崩溃。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.IllegalArgumentException: View not attached to window manager</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>解决方法：<br>1、在页面的destory方法中，判断dialog是否存在，若存在，dismiss就销毁，使dialog的生命周期与activity同步；<br>2、在一些由于耗时操作或其他操作导致容易出现activity被销毁而dialog未销毁的地方，使用activity.isfinidhing方法判断activity是否被销毁，销毁，则终止代码；</p>
 </blockquote>
-<h3 id="技术点（星号）Unordered-Lists"><a href="#技术点（星号）Unordered-Lists" class="headerlink" title="技术点（星号）Unordered Lists (*)"></a>技术点（星号）Unordered Lists (*)</h3><ul>
-<li>子view不局限于parent内【是否限制子View在其范围内】，在跟布局天添加：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:clipChildren="false"</div></pre></td></tr></table></figure>
-</li>
-</ul>
+<h3 id="技术点（星号）Unordered-Lists"><a href="#技术点（星号）Unordered-Lists" class="headerlink" title="技术点（星号）Unordered Lists (*)"></a>技术点（星号）Unordered Lists (*)</h3><p> <strong>子view不局限于parent内【是否限制子View在其范围内】，在跟布局天添加：</strong><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:clipChildren="false"</div></pre></td></tr></table></figure></p>
+<p> <strong>给TextView设置drawable</strong></p>
+<p> 使用xml布局<br> <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">android:drawableLeft="@drawable/icon"</div></pre></td></tr></table></figure></p>
+<p> 动态代码设置<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Drawable drawable = getResources().getDrawable(R.drawable.icon_new);  </div><div class="line">drawable.setBounds(<span class="number">0</span>,</div><div class="line">                                  <span class="number">0</span>,</div><div class="line">                                  drawable.getMinimumWidth(),</div><div class="line">                                  drawable.getMinimumHeight());</div><div class="line"> textview.setCompoundDrawables(<span class="keyword">null</span>, <span class="keyword">null</span>, rightDrawable, <span class="keyword">null</span>);</div></pre></td></tr></table></figure></p>
+<p> <strong>代码中设置ProgressBar的颜色：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ClipDrawable drawable = <span class="keyword">new</span> ClipDrawable(<span class="keyword">new</span> ColorDrawable(color), Gravity.LEFT,  ClipDrawable.HORIZONTAL);</div><div class="line"><span class="comment">//须先设置到progressbar上再设置level， 告诉这个drawable有多宽，level才能生效</span></div><div class="line">progressBar.setProgressDrawable(drawable);</div><div class="line">drawable.setLevel(progress * <span class="number">100</span>);</div><div class="line">progressBar.setProgressDrawable(drawable);</div><div class="line">progressBar.setProgress(progress);</div></pre></td></tr></table></figure></p>
 <h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3>
 			
 		</div><!-- .entry-content -->
